@@ -68,11 +68,30 @@ h2 {
     color: var(--grey-clean);
 }
   
+.form-error-text {
+    color: var(--red);
+}
+  
+.form-group {
+    display: flex;
+    flex-flow: column;
+    margin: 0.5rem 0;
+}
+  
 .form-title {
     font-size: 2.4rem;
     font-weight: 300;
     text-align: center;
     margin-bottom: 1.2rem;
+}
+  
+.form-label {
+    font-size: 1rem;
+}
+  
+.form-input {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
 }
   
 .form-button-wrapper {
@@ -82,6 +101,22 @@ h2 {
     margin: 2rem 0 1rem
 }
   
+.question-title {
+    font-size: 1.8rem;
+    font-weight: 150;
+    margin: 1.2rem 0 1.2rem 0;
+}
+
+.quiz-button {
+    font-size: 1.2rem;
+    display: block;
+    margin: 12px;
+}
+
+.error-message {
+    color: rgb(255, 0, 0);
+}
+
 /* Footer Styles */
 
 footer {
