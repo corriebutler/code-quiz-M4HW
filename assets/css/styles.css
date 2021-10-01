@@ -3,7 +3,6 @@
     --orange-vermillion: rgb(255, 73, 27);
     --yellow-sunshine: rgb(248, 183, 50);
     --grey-clean: rgb(224, 220, 228);
-    --red: rgb(255, 0, 0);
 }
   
 * {
@@ -113,8 +112,10 @@ h2 {
     margin: 12px;
 }
 
-.error-message {
-    color: rgb(255, 0, 0);
+.question-results {
+    font-style: italic;
+    margin-top: 1.5rem;
+    font-size: 1.8rem;
 }
 
 /* Footer Styles */
