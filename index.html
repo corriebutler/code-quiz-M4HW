@@ -18,47 +18,75 @@
                 </div>
               </div>
             
+            <!-- Timer Set Up -->
             <div id="timer">
               <p class="text-align-right">
-                  Time Remaining: <span id="timer-countdown">10s</span>
+                  Time Remaining: <span id="timer-countdown">90s</span>
                 </p>
             </div>
-            <div id="question-1">
+
+            <!-- Quiz Questions Added -->
+            <div id="question-1" data-state="hidden">
                 <h2 id="question-1-title" class="question-title">Commonly used data types DO NOT include:</h2>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">1. Strings</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">2. Booleans</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">3. Alerts</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">4. Numbers</button>
             </div>
-            <div id="question-2">
+            <div id="question-2" data-state="hidden">
                 <h2 id="question-2-title" class="question-title">The condition in an if / else statement is enclosed within:</h2>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">1. Quotes</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">2. Curly Brackets</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">3. Parenthesis</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">4. Square Brackets</button>
             </div>
-            <div id="question-3">
+            <div id="question-3" data-state="hidden">
                 <h2 id="question-3-title" class="question-title">Arrays in JavaScript can be used to store:</h2>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">1. Numbers and Strings</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">2. Other Arrays</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">3. Booleans</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">4. All of the Above</button>
             </div>
-            <div id="question-4">
+            <div id="question-4" data-state="hidden">
                 <h2 id="question-4-title" class="question-title">String values must be enclosed withing _______ when being assigned to variables.</h2>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">1. Commas</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">2. Curly Brackets</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">3. Quotes</button>
                 <button id="answer-quiz-button" class="cta cta-primary quiz-button" type="button">4. Parenthesis</button>
             </div>
-
-            <div id="question-correct" class="question-results">
+        
+            <!-- Question Results Added -->
+            <div id="question-correct" class="question-results" data-state="hidden">
                 <p>Correct!</p>
             </div>
-            <div id="question-wrong" class="question-results">
+            <div id="question-wrong" class="question-results" data-state="hidden">
                 <p>Wrong!</p>
             </div>
+            
         </form>
+        
+        <!-- Final Score Area -->
+        <div id="final-score-container" class="quiz-form">
+            <h2 class="form-title">Good Job!</h2>
+            <p class="text-align-center question-title">Your Final Score is <span id="final-score">90</span></p>
+            <span class="enter-initials-container">
+                <label class="question-title" for="initials">Enter Initials:</label>
+                <input
+                    id="initials"
+                    name="initials"
+                    class="form-input"
+                    type="initials"
+                />
+                <button id="initials-submit-button" class="cta cta-primary quiz-button initials-button" type="submit">Submit</button>
+            </span>
+        </div>
+
+        <!-- Adding High Scores area -->
+        <span id="high-scores-container" class="quiz-form saved-scores-container">
+            <h2 class="form-title scores-title">High Scores!</h2>
+            <button id="go-back-button" class="cta cta-primary scores-button" type="button">Go Back</button>
+            <button id="clear-scores-button" class="cta cta-primary scores-button" type="button">Clear High Scores</button>
+        </span>
     </main>
     <footer class="cta cta-primary view-highscores">
         <h2>View Highscores</h2>

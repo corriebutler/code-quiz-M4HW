@@ -91,6 +91,9 @@ h2 {
 .form-input {
     font-size: 1.5rem;
     margin: 0.5rem 0;
+    border-radius: 15px;
+    padding: 11px;
+    width: 40%;
 }
   
 .form-button-wrapper {
@@ -116,6 +119,27 @@ h2 {
     font-style: italic;
     margin-top: 1.5rem;
     font-size: 1.8rem;
+}
+
+/* Final Score Area */
+.enter-initials-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.initials-button {
+    font-size: 1.2rem;
+}
+
+/* High Scores Area  */
+.saved-scores-container {
+    display: block;
+    text-align: center;
+}
+
+.scores-title {
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
 }
 
 /* Footer Styles */
