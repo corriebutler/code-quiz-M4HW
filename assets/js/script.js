@@ -82,7 +82,11 @@ function validateAnswer() {
     else {
         questionResultEl.textContent = 'Wrong!';
         questionResultEl.setAttribute('class','question-results');
+        
+        timeLeft -= 10;
+        clockTick;
 
+        userScoreEl.textContent = userScore -= 12;
     };
     
     questionIndex++;
@@ -91,6 +95,9 @@ function validateAnswer() {
 };
 
 function clockTick() {
+    // var timeLeft = 90;
+    // var timerID;
+
     timeLeft--
     
     timerCountdown.textContent = timeLeft;
