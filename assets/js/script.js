@@ -11,6 +11,7 @@ var startQuizButton = document.getElementById('start-quiz-button');
 var startQuizEl = document.querySelector('#start-quiz');
 var questionZoneEl = document.querySelector('#question-zone');
 var answerQuizEl = document.querySelector('#answer-quiz-button');
+var questionResultEl = document.querySelector('#question-result');
 var finalScoreEl = document.querySelector('#final-score-container');
 
 // Declaring Variables
@@ -18,12 +19,22 @@ var questions = [
     {
         title:'Commonly used data types DO NOT include',
         choices:['Strings', 'Booleans', 'Alerts', 'Numbers'],
-        answer:'Strings'
+        answer:'Alerts'
     },
     {
         title:'The condition in an if / else statement is enclosed within:',
-        choices:['Strings', 'Booleans', 'Alerts', 'Numbers'],
-        answer:'Strings'
+        choices:['Quotes', 'Curly Brackets', 'Parenthesis', 'Square Brackets'],
+        answer:'Parenthesis'
+    },
+    {
+        title:'Arrays in JavaScript can be used to store:',
+        choices:['Numbers', 'Other Arrays', 'Booleans', 'All of the Above'],
+        answer:'All of the Above'
+    },
+    {
+        title:'String values must be enclosed withing _______ when being assigned to variables.',
+        choices:['Commas', 'Curly Brackets', 'Quotes', 'Parenthesis'],
+        answer:'Quotes'
     },
 
 ];
@@ -48,6 +59,7 @@ function generateNewQuestion() {
     var currentQuestion = questions[questionIndex];
 
     questionTitleEl.textContent = currentQuestion.title;
+    questionTitleEl.setAttribute('class','question-title');
     currentQuestion.choices.forEach(function(element) {
         var temp = document.createElement('button');
 
@@ -64,7 +76,17 @@ function generateNewQuestion() {
 
 function validateAnswer() {
     var selectedAnswer = this.value;
+    var currentQuestion = questions[questionIndex];
     console.log(selectedAnswer);
+
+    if (selectedAnswer === currentQuestion.answer) {
+        questionResultEl.textContent = 'Correct!';
+        questionResultEl.setAttribute('class','question-results');
+    }
+    else {
+        questionResultEl.textContent = 'Wrong!';
+        questionResultEl.setAttribute('class','question-results');
+    };
 
     questionIndex++;
 
