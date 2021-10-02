@@ -152,10 +152,18 @@ footer {
     padding: 0 15px;
     margin: 0 150px 0 150px;
 }
+
+footer a {
+    text-decoration: none;
+    color: var(--orange-vermillion);
+}
+
+.go-back-button {
+    text-decoration: none;
+}
   
 .view-highscores {
     flex: 1 0 auto;
     background-color: var(--grey-clean);
-    color: var(--orange-vermillion);
     border-radius: 15px;
 }
