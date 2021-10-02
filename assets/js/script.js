@@ -1,19 +1,14 @@
 // Grab Elements from the DOM
-var startQuizForm = document.getElementById('start-quiz');
-var timerCountdown = document.getElementById('timer-countdown');
-var questionTitleEl = document.getElementById('question-title');
-var correctAnswer = document.getElementById('question-correct');
-var wrongAnswer = document.getElementById('question-wrong');
-var finalScore = document.getElementById('final-score-container');
-var highScore = document.getElementById('high-scores-container');
-var startQuizButton = document.getElementById('start-quiz-button');
-
 var startQuizEl = document.querySelector('#start-quiz');
+var startQuizButton = document.getElementById('start-quiz-button');
+var timerCountdown = document.getElementById('timer-countdown');
 var questionZoneEl = document.querySelector('#question-zone');
+var questionTitleEl = document.getElementById('question-title');
 var answerQuizEl = document.querySelector('#answer-quiz-button');
 var questionResultEl = document.querySelector('#question-result');
 var userScoreEl = document.querySelector('#user-score');
-var finalScoreEl = document.querySelector('#final-score-container');
+var finalScoreEl = document.getElementById('final-score');
+var finalScoreContainerEl = document.querySelector('#final-score-container');
 
 // Declaring Variables
 var questions = [
@@ -46,7 +41,7 @@ var questionIndex = 0;
 var userScore = 90;
 
 questionZoneEl.style.display = 'none'
-finalScoreEl.style.display = 'none'
+finalScoreContainerEl.style.display = 'none'
 
 // When Start Quiz Button is Clicked, the Timer Starts and Question One Appears
 function startQuiz() {
@@ -76,7 +71,6 @@ function generateNewQuestion() {
     
 };
 
-
 function validateAnswer() {
     var currentQuestion = questions[questionIndex];
     var selectedAnswer = this.value;
@@ -89,7 +83,6 @@ function validateAnswer() {
         questionResultEl.textContent = 'Wrong!';
         questionResultEl.setAttribute('class','question-results');
 
-        userScoreEl.textContent = userScore - 12;
     };
     
     questionIndex++;
@@ -97,15 +90,10 @@ function validateAnswer() {
     generateNewQuestion();
 };
 
-
 function clockTick() {
     timeLeft--
     
     timerCountdown.textContent = timeLeft;
-
-    // if (this.value != currentQuestion.answer) {
-    //     timeLeft - 10;
-    // };
 
     if (timeLeft <= 0) {
         endQuiz();
@@ -115,7 +103,10 @@ function clockTick() {
 function endQuiz() {
     clearInterval(timerID);
     questionZoneEl.style.display = 'none'
-    finalScoreEl.style.display = 'block'
+    finalScoreContainerEl.style.display = 'block'
+
+    finalScoreEl.textContent = userScore;
+
 };
 
 
