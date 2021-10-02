@@ -111,7 +111,7 @@ h2 {
 
 .quiz-button {
     font-size: 1.2rem;
-    display: block;
+    display: inline;
     margin: 12px;
 }
 

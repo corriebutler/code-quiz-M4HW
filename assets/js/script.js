@@ -17,7 +17,7 @@ var finalScoreEl = document.querySelector('#final-score-container');
 // Declaring Variables
 var questions = [
     {
-        title:'Commonly used data types DO NOT include',
+        title:'Commonly used data types DO NOT include:',
         choices:['Strings', 'Booleans', 'Alerts', 'Numbers'],
         answer:'Alerts'
     },
