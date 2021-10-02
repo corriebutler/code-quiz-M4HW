@@ -97,10 +97,14 @@ function clockTick() {
     timeLeft--
     
     timerCountdown.textContent = timeLeft + 's';
+    if (timeLeft <= 0) {
+        endQuiz();
+    }
 };
 
 function endQuiz() {
-
+    clearInterval(timerID);
+    console.log('Time up, the end');
 };
 
 
