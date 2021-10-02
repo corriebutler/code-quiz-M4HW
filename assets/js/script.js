@@ -12,6 +12,7 @@ var startQuizEl = document.querySelector('#start-quiz');
 var questionZoneEl = document.querySelector('#question-zone');
 var answerQuizEl = document.querySelector('#answer-quiz-button');
 var questionResultEl = document.querySelector('#question-result');
+var userScoreEl = document.querySelector('#user-score');
 var finalScoreEl = document.querySelector('#final-score-container');
 
 // Declaring Variables
@@ -42,6 +43,7 @@ var questions = [
 var timeLeft = 90;
 var timerID;
 var questionIndex = 0;
+var userScore = 90;
 
 questionZoneEl.style.display = 'none'
 finalScoreEl.style.display = 'none'
@@ -50,34 +52,35 @@ finalScoreEl.style.display = 'none'
 function startQuiz() {
     startQuizEl.style.display = 'none';
     questionZoneEl.style.display = 'block';
-
+    
     timerID = setInterval(clockTick, 1000);
     generateNewQuestion();
 };
 
 function generateNewQuestion() {
     var currentQuestion = questions[questionIndex];
-
+    
     questionTitleEl.textContent = currentQuestion.title;
     questionTitleEl.setAttribute('class','question-title');
     currentQuestion.choices.forEach(function(element) {
         var temp = document.createElement('button');
-
+        
         temp.textContent = element;
         temp.setAttribute('class','cta cta-primary quiz-button');
         temp.setAttribute('value', element);
-
+        
         temp.onclick = validateAnswer;
-
+        
         answerQuizEl.appendChild(temp);
     });
-
+    
 };
 
-function validateAnswer() {
-    var selectedAnswer = this.value;
-    var currentQuestion = questions[questionIndex];
 
+function validateAnswer() {
+    var currentQuestion = questions[questionIndex];
+    var selectedAnswer = this.value;
+    
     if (selectedAnswer === currentQuestion.answer) {
         questionResultEl.textContent = 'Correct!';
         questionResultEl.setAttribute('class','question-results');
@@ -85,20 +88,28 @@ function validateAnswer() {
     else {
         questionResultEl.textContent = 'Wrong!';
         questionResultEl.setAttribute('class','question-results');
+
+        userScoreEl.textContent = userScore - 12;
     };
-
+    
     questionIndex++;
-
+    
     generateNewQuestion();
 };
+
 
 function clockTick() {
     timeLeft--
     
-    timerCountdown.textContent = timeLeft + 's';
+    timerCountdown.textContent = timeLeft;
+
+    // if (this.value != currentQuestion.answer) {
+    //     timeLeft - 10;
+    // };
+
     if (timeLeft <= 0) {
         endQuiz();
-    }
+    };
 };
 
 function endQuiz() {
