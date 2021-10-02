@@ -39,7 +39,7 @@ var questions = [
 
 ];
 
-var timeLeft = 120;
+var timeLeft = 90;
 var timerID;
 var questionIndex = 0;
 
@@ -77,7 +77,6 @@ function generateNewQuestion() {
 function validateAnswer() {
     var selectedAnswer = this.value;
     var currentQuestion = questions[questionIndex];
-    console.log(selectedAnswer);
 
     if (selectedAnswer === currentQuestion.answer) {
         questionResultEl.textContent = 'Correct!';
@@ -104,7 +103,8 @@ function clockTick() {
 
 function endQuiz() {
     clearInterval(timerID);
-    console.log('Time up, the end');
+    questionZoneEl.style.display = 'none'
+    finalScoreEl.style.display = 'block'
 };
 
 
