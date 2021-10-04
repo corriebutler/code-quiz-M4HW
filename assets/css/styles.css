@@ -167,3 +167,7 @@ footer a {
     background-color: var(--grey-clean);
     border-radius: 15px;
 }
+
+.display-inline {
+    display: inline;
+}

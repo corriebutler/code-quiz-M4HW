@@ -11,6 +11,7 @@ var finalScoreEl = document.getElementById('final-score');
 var finalScoreContainerEl = document.querySelector('#final-score-container');
 var initialsEl = document.querySelector('#initials');
 var initialsbtnEl = document.querySelector('#initials-submit-button');
+var highscoreDisplayEl = document.querySelector('#high-score-users');
 
 // Declaring Variables
 var questions = [
@@ -117,25 +118,6 @@ function clockTick() {
         endQuiz();
     };
 };
-
-// var createScores = function(scoreDataObj) {
-//     var listScoresEl = document.createElement('li');
-//     listScoresEl.setAttribute = ('class','text-align-center question-title');
-
-//     listScoresEl.setAttribute('score-id', scoreIdCounter);
-
-//     var scoresInfoEl = document.createElement('div');
-//     scoresInfoEl.innerHTML = scoreDataObj.initialsInput + scoreDataObj.score;
-//     listScoresEl.appendChild(scoresInfoEl);
-
-//     scores.push(scoreDataObj);
-
-//     highscoreDisplayEl.appendChild(listScoresEl);
-
-//     // highscoreContainerEl.appendChild(highscoreDisplayEl);
-//     scoreIdCounter++;
-// };
-
 
 // Last page of the quiz
 function endQuiz() {
