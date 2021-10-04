@@ -14,4 +14,10 @@ var loadScores = function() {
     }
 };
 
+// Clearing out the highscores when clicking the button
+clearHighscoresEl.addEventListener('click', function() {
+    localStorage.clear();
+    userScoreDisplayEl.textContent = "";
+});
+
 loadScores();
