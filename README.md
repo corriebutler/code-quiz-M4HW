@@ -16,6 +16,7 @@ https://corriebutler.github.io/code-quiz-M4HW/
 ## Resources
 Timer Subtraction (-=): https://stackoverflow.com/questions/58964755/subtract-time-from-timer-if-answer-is-wrong-creating-a-quiz-javascript
 Got the buttons to stop duplicating (posted on Stack Overflow): https://stackoverflow.com/questions/69439842/appendchild-adding-on-foreach-elements-when-needing-it-replace-existing#comment122737558_69439842
+Add on to localStorage not replace: https://stackoverflow.com/questions/35813704/add-a-value-to-localstorage-instead-of-replacing-it
 
 
 

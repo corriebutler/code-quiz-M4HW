@@ -41,6 +41,8 @@ var timeLeft = 90;
 var timerID;
 var questionIndex = 0;
 var userScore = 90;
+var scoreIdCounter = 0;
+// var highScores = [];
 
 questionZoneEl.style.display = 'none'
 finalScoreContainerEl.style.display = 'none'
@@ -116,28 +118,55 @@ function clockTick() {
     };
 };
 
+// var createScores = function(scoreDataObj) {
+//     var listScoresEl = document.createElement('li');
+//     listScoresEl.setAttribute = ('class','text-align-center question-title');
+
+//     listScoresEl.setAttribute('score-id', scoreIdCounter);
+
+//     var scoresInfoEl = document.createElement('div');
+//     scoresInfoEl.innerHTML = scoreDataObj.initialsInput + scoreDataObj.score;
+//     listScoresEl.appendChild(scoresInfoEl);
+
+//     scores.push(scoreDataObj);
+
+//     highscoreDisplayEl.appendChild(listScoresEl);
+
+//     // highscoreContainerEl.appendChild(highscoreDisplayEl);
+//     scoreIdCounter++;
+// };
+
+
 // Last page of the quiz
 function endQuiz() {
     clearInterval(timerID);
     questionZoneEl.style.display = 'none'
     finalScoreContainerEl.style.display = 'block'
-
+    
     finalScoreEl.textContent = userScore;
-
-    initialsbtnEl.addEventListener("click", function(event) {
-        event.preventDefault();
-
-        var saveScore = {
-            initialsInput: initialsEl.value.trim(),
-            score: userScore 
-        };
-
-        console.log(userScore);
-        console.log(saveScore);
-
-        localStorage.setItem("saveScore", JSON.stringify(saveScore));
-    });
 };
+
+initialsbtnEl.addEventListener('click', function saveHighScore() {
+
+    if (initialsEl.value === "") {
+        alert('Must include initials to save high score.');
+        return false;
+    }
+    else {
+        var highScores = JSON.parse(localStorage.getItem('saveScore')) || [];
+        var initials = initialsEl.value.trim();
+        var saveScore = {
+            name: initials,
+            score: userScore
+        };
+    }
+
+    console.log(saveScore);
+    highScores.push(saveScore);
+    console.log(highScores);
+
+    localStorage.setItem("saveScore", JSON.stringify(highScores));
+});
 
 // When an Answer for Question 4 is selected, the Final Page displays and with their final score
 
