@@ -4,7 +4,7 @@ var startQuizButton = document.getElementById('start-quiz-button');
 var timerCountdown = document.getElementById('timer-countdown');
 var questionZoneEl = document.querySelector('#question-zone');
 var questionTitleEl = document.getElementById('question-title');
-var answerQuizEl = document.querySelector('#answer-quiz-button');
+var quizAnswersEl = document.querySelector('#quiz-answers');
 var questionResultEl = document.querySelector('#question-result');
 var userScoreEl = document.querySelector('#user-score');
 var finalScoreEl = document.getElementById('final-score');
@@ -54,7 +54,12 @@ function startQuiz() {
 
 function generateNewQuestion() {
     var currentQuestion = questions[questionIndex];
+    var endQuestions = questions[questions.length + 1]
     
+    if (currentQuestion == endQuestions) {
+        endQuiz();
+    }
+    else {
     questionTitleEl.textContent = currentQuestion.title;
     questionTitleEl.setAttribute('class','question-title');
     currentQuestion.choices.forEach(function(element) {
@@ -66,9 +71,10 @@ function generateNewQuestion() {
         
         temp.onclick = validateAnswer;
         
-        answerQuizEl.appendChild(temp);
+        quizAnswersEl.appendChild(temp);
+        
     });
-    
+}
 };
 
 function validateAnswer() {
@@ -95,9 +101,6 @@ function validateAnswer() {
 };
 
 function clockTick() {
-    // var timeLeft = 90;
-    // var timerID;
-
     timeLeft--
     
     timerCountdown.textContent = timeLeft;
