@@ -38,6 +38,7 @@ var questions = [
 
 ];
 
+
 var timeLeft = 90;
 var timerID;
 var questionIndex = 0;
@@ -47,6 +48,13 @@ var scoreIdCounter = 0;
 
 questionZoneEl.style.display = 'none'
 finalScoreContainerEl.style.display = 'none'
+
+// function to generate a random numeric value
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min) + min);
+  
+    return value;
+  };
 
 // When Start Quiz Button is Clicked, the Timer Starts and Question One Appears
 function startQuiz() {
@@ -100,7 +108,7 @@ function validateAnswer() {
         timeLeft -= 10;
         clockTick;
 
-        userScoreEl.textContent = userScore -= 12;
+        userScoreEl.textContent = userScore -= randomNumber(9, 21);
     };
     
     questionIndex++;
