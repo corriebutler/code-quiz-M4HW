@@ -9,6 +9,8 @@ var questionResultEl = document.querySelector('#question-result');
 var userScoreEl = document.querySelector('#user-score');
 var finalScoreEl = document.getElementById('final-score');
 var finalScoreContainerEl = document.querySelector('#final-score-container');
+var initialsEl = document.querySelector('#initials');
+var initialsbtnEl = document.querySelector('#initials-submit-button');
 
 // Declaring Variables
 var questions = [
@@ -71,6 +73,7 @@ function generateNewQuestion() {
         
         temp.onclick = validateAnswer;
         
+
         quizAnswersEl.appendChild(temp);
         
     });
@@ -117,6 +120,17 @@ function endQuiz() {
 
     finalScoreEl.textContent = userScore;
 
+    initialsbtnEl.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var savedScore = {
+            initialsInput: initialsEl.value.trim(),
+            score: userScore 
+        };
+
+        console.log(userScore);
+        console.log(savedScore);
+    });
 };
 
 
