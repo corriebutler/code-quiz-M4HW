@@ -1,4 +1,4 @@
-// Grab Elements from the DOM
+// Grab Elements from the DOM for Index.HTML
 var startQuizEl = document.querySelector('#start-quiz');
 var startQuizButton = document.getElementById('start-quiz-button');
 var timerCountdown = document.getElementById('timer-countdown');
@@ -54,6 +54,7 @@ function startQuiz() {
     generateNewQuestion();
 };
 
+// Generated new questions after answering others
 function generateNewQuestion() {
     var currentQuestion = questions[questionIndex];
     var endQuestions = questions[questions.length + 1]
@@ -64,6 +65,7 @@ function generateNewQuestion() {
     else {
     questionTitleEl.textContent = currentQuestion.title;
     questionTitleEl.setAttribute('class','question-title');
+    quizAnswersEl.innerHTML = '';
     currentQuestion.choices.forEach(function(element) {
         var temp = document.createElement('button');
         
@@ -73,13 +75,13 @@ function generateNewQuestion() {
         
         temp.onclick = validateAnswer;
         
-
         quizAnswersEl.appendChild(temp);
         
     });
 }
 };
 
+// Displaying if you got the score right or wrong
 function validateAnswer() {
     var currentQuestion = questions[questionIndex];
     var selectedAnswer = this.value;
@@ -103,6 +105,7 @@ function validateAnswer() {
     generateNewQuestion();
 };
 
+// Timer function
 function clockTick() {
     timeLeft--
     
@@ -113,6 +116,7 @@ function clockTick() {
     };
 };
 
+// Last page of the quiz
 function endQuiz() {
     clearInterval(timerID);
     questionZoneEl.style.display = 'none'
@@ -123,23 +127,17 @@ function endQuiz() {
     initialsbtnEl.addEventListener("click", function(event) {
         event.preventDefault();
 
-        var savedScore = {
+        var saveScore = {
             initialsInput: initialsEl.value.trim(),
             score: userScore 
         };
 
         console.log(userScore);
-        console.log(savedScore);
+        console.log(saveScore);
+
+        localStorage.setItem("saveScore", JSON.stringify(saveScore));
     });
 };
-
-
-
-// When an Answer for Question 1 is selected, Question 2 displays and whether they got it right or wrong
-
-// When an Answer for Question 2 is selected, Question 3 displays and whether they got it right or wrong
-
-// When an Answer for Question 3 is selected, Question 4 displays and whether they got it right or wrong
 
 // When an Answer for Question 4 is selected, the Final Page displays and with their final score
 
