@@ -138,6 +138,7 @@ function endQuiz() {
     finalScoreEl.textContent = userScore;
 };
 
+// Saving your High Score
 initialsbtnEl.addEventListener('click', function saveHighScore() {
     
     if (initialsEl.value === "") {
@@ -153,6 +154,8 @@ initialsbtnEl.addEventListener('click', function saveHighScore() {
         };
         
     }
+    
+    initialsEl.value = "";
 
     console.log(saveScore);
     highScores.push(saveScore);
@@ -164,11 +167,5 @@ initialsbtnEl.addEventListener('click', function saveHighScore() {
     scoreSavedEl.setAttribute('class','question-results');
 
 });
-
-// When an Answer for Question 4 is selected, the Final Page displays and with their final score
-
-// On Final Score page, they can save their intitals with their score (localStorage)
-
-// Clicking "View High Scores" takes them to the High Scores page where they can see previous high scores and delete them
 
 startQuizButton.onclick = startQuiz;
